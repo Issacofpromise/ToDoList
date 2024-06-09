@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/main.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <%- include('navbar.html') %>
+      <h4 class="container mt-4"><strong>글 작성페이지</strong></h4>
+      <div class="container mt-3">
+        <form action="/ad" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label>할일 제목</label>
+            <input type="text" class="form-control" name="title">
+          </div>
+          <div class="form-group">
+            <label>마감 일자</label>
+     <% if(!date){ %>  
+            <input type="text" class="form-control" name="date"><% }else{ %>
+<input type="text" class="form-control" name="date" value="<%= date %>"><% } %>  
+            <label class="my-4">할일 내용</label>
+      <% if(!content){ %>   
+<textarea class="form-control" name="content" rows="6"></textarea>
+<% }else{ %>
+  <textarea class="form-control" name="content" rows="6"><%= content %></textarea> 
+<% } %> 
+</br>  <input type="file" name="img1" accept="image/*">  </div>  </br> 
+  <button type="submit" class="btn btn-outline-secondary">Submit</button>
+  <a href="/list" class="btn btn-primary ml-2">Go To List</a>
+  <% if (message) { %>
+    <script>alert('<%= message %>')</script>
+<% } %>        </form>      </div>
+      <script>     
+document.querySelector('input[type=file]').addEventListener('change', e=> {
+  var fileName = e.target.files[0].name;
+  var ext = fileName.substr(fileName.lastIndexOf('.') + 1);
+  if (ext !== 'png' && ext !== 'jpg' && ext !== 'gif' && ext !== 'jpeg') {
+    alert('PNG, JPG, GIF만 업로드 가능합니다 client');
+    e.target.value = '';    }
+}); </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>

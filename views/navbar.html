@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/main.css">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">ToDoApp</a>
+<% if(user){ %>
+      <p class="ml-auto mb-2 mt-2 navbar-text d-lg-none"><%= user.name +' 님' %></p><% } %>
+  <button class="navbar-toggler ml-4" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+  <% if(!user){ %>
+          <li class="nav-item">
+<a data-toggle="modal" data-target="#drop"class="nav-link">Membership application</a>
+          </li><% } %>        
+       <li class="nav-item">
+    <a class="nav-link" href="/write">Write</a> </li>   
+    <li class="nav-item">
+      <a class="nav-link" href="/list">List</a> </li>    
+   <% if(user){ %>
+    <li class="nav-item">
+      <a class="nav-link" href="/mypage">Mypage</a> </li> 
+<li class="nav-item">
+      <a class="nav-link" href="/chat">Chat</a> </li> 
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">log-out</a></li>
+    <% } %>  </ul></div>
+    <% if(user){ %>   
+<p class="ml-auto mb-2 mt-2 mr-4 navbar-text d-none d-lg-block"><%= user.name +' 님' %></p>
+      <% } %> 
+    </nav>
+    <script>
+  $('.navbar-toggler').on('click', function() {  $('.collapse').toggleClass('show');
+  });
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+

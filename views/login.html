@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/main.css">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="modal fade" id="static" tabindex="-1" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Log-in</h5>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label class="col-form-label">ID :</label>
+            <input class="form-control" name="username" id="username">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Password:</label>
+            <input class="form-control" name="password" id="password">
+          </div>       
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="lg btn btn-primary">log-in</button>
+      </div>   </form>  </div>  </div></div>
+<script >
+ $('form').on('submit', (e)=> {   e.preventDefault(); 
+  var username = $(document).find('#username').val();  console.log('lg',username);
+var password = $(document).find('#password').val(); console.log('lg',password); 
+    $.ajax({    url: '/login', method: 'POST',
+    data: { username: username, password: password
+    }, success: (data)=> {  location.reload();
+    }, error: (xhr, status, error)=> { alert(xhr.responseText)  }
+  });
+}); 
+     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>

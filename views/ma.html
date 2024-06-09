@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/main.css">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="modal fade" id="drop" data-backdrop="static" tabindex="-1" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Membership application</h5>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/mb" method="POST">           
+                <label class="col-form-label">ID :</label>
+                <input class="form-control" name="username" id="userma">             
+                <label class="col-form-label">Password:</label>
+                <input class="form-control" name="password" id="passma">  
+                <label class="col-form-label">Password_재확인용</label>
+                <input class="form-control" name="pw">
+                <div class="form-group">
+                  <label class="col-form-label">Name:</label>
+                  <input class="form-control" name="name">  </div>     
+          </div>
+          <div class="modal-footer">
+            <button type="submit"  class="mem btn btn-primary">가입신청</button>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>  </form>   </div>  </div></div>
+     <script>
+  $('.mem').on('click', (event)=> {  
+    var username = $(document).find('#userma').val(); console.log('ma',username);
+    var password = $(document).find('#passma').val(); console.log('ma',password);
+    var name = document.querySelector('input[name="name"]').value;
+    var pw = document.querySelector('input[name="pw"]').value; console.log('ma',pw);
+    if (!name) {   alert('이름을 입력해주세요.ma'); event.preventDefault();
+  } else if (!username) {  alert('id 를 입력해주세요.ma'); event.preventDefault();
+  } else if (password !== pw) { alert('비밀번호가 일치하지 않습니다.ma'); event.preventDefault();  } 
+}); 
+     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
