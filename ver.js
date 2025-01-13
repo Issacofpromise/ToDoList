@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const app = express(); var db; 
 const http=require('http');
@@ -5,8 +7,6 @@ app.use(express.urlencoded({extended: true}));
 require('dotenv').config() 
 const MongoClient = require('mongodb').MongoClient; 
 const server = http.createServer(app)
-const socketIo = require('socket.io')
-const io = socketIo(server) 
 const { ObjectId } = require('mongodb');
 const MongoStore = require('connect-mongo')
 app.set('view engine', 'ejs');
@@ -21,7 +21,7 @@ const session = require('express-session')
 const passport = require('passport')
 app.use(passport.initialize())
 const LocalStrategy = require('passport-local').Strategy;
-app.use(session({ secret: process.env.secret, resave : false, saveUninitialized : false,
+app.use(session({secret:process.env.secret, resave : false, saveUninitialized : false,
 cookie : { maxAge: Number(process.env.maxAge) }, store: MongoStore.create({
   mongoUrl : process.env.DB_URL, dbName: 'ToDoApp'}) }))
 app.use(passport.session()) 
@@ -92,13 +92,7 @@ if (요청.body.clear=='false') { { db.collection('post').updateOne({ _id: parse
 )}}
 응답.send(`<script>alert('수정되었습니다');window.location="/detail/"+${요청.params.id}</script>`); 
       }); 
-app.get('/chatting', async (요청, 응답) => { console.log('요청.query',요청.query);
- 응답.render('chatting', {user: 요청.user});
-}) 
-app.get('/chat', async (요청, 응답) => {  응답.render('chat', {user: 요청.user});
-})  
-io.on('connection', (socket) => {  console.log('websocket 연결됨')
-})
+
 
 
 
