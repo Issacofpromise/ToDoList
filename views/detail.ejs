@@ -30,7 +30,6 @@
           <a href="/edit/<%= dt._id %>" class="btn btn-danger ml-2">Edit</a>  <% } %>
  <a href="#" onclick="goBack()" class="btn btn-primary ml-2">Go To List</a>
  <% if(user && (dt.user.toString() != user._id.toString() || user.name=='admin')){ %>
-    <a href="/chatting/?writerId=<%= dt.user %>"class="btn btn-warning ml-2">Chatting</a>  
    <% } %></div>
         </div>
       </div><hr style="margin-top: 40px;"> 
