@@ -6,6 +6,7 @@
 管理者はすべての投稿とコメントを編集・削除できます。
 
 会員登録済みアカウント
+
 id: piano30 / pw : odoroizanai95*
 
 id: ondal / pw : sooja~!ro11≫ 一般ユーザーアカウント。
