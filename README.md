@@ -8,6 +8,9 @@ ToDoListはJavaScriptベースでコメント機能を含むCRUDプロジェク�
 id: piano30 / pw : odoroizanai95*
 ID: ondal / パスワード: sooja~!ro11≫ 一般ユーザーアカウント。
 ID: admin / パスワード: ^^^^ 1111* -≫ 管理者アカウント。
+VSCode のターミナルで npm start を実行すると、http://localhost:3000/ にアクセスできます。
+「npm start コマンドの実行には、Node.js のインストールが必要です。」
+
 
 ToDoList는 JavaScript 기반으로 댓글 기능이 포함된 CRUD 프로젝트이며, 
 MongoDB 인증 정보를 포함한 .env 파일은 제외하고, GitHub에 push했기에 git clone해도 실행되지 않지만,
